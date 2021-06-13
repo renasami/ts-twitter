@@ -12,6 +12,9 @@ const Home:  React.FC<Props> = (props) => {
         if(!userId){
             alert('you must type your user id');
             return
+        }else if (userId[0] != '@'){
+            alert('you must start with @')
+            return
         }
         console.log("hello");
         console.log(userId);
