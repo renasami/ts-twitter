@@ -1,0 +1,22 @@
+.button {
+    background: #282c34;
+    color: white;
+    border: 2px solid white;
+    font-size: 20px;
+    letter-spacing: 2px;
+    padding: 25px 80px;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: inline-block;
+    margin: 15px 30px;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+}
+.button:hover{
+    background-color: white;
+    color: #282c34;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+}
