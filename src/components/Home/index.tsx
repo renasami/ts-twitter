@@ -16,9 +16,9 @@ const Home:  React.FC<Props> = (props) => {
         console.log("hello");
         console.log(userId);
     }
-    const [userId, setUserId]  = useState('')
+    const [userId, setUserId]  = useState('');
 
-    const getValueId = (e) => {
+    const getValueId = (e: { target: { value: string; }; }) => {
         setUserId(() => e.target.value)
     }
 
