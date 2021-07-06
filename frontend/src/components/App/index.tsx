@@ -7,7 +7,7 @@ function App() {
     <div className="App">
         <header className="App-header">
             <h1> Are your tweets okay?</h1>
-            <Button content="Start Here" href="/Home" func= {null} ></Button>
+            <Button content="Start Here" href="/Home" ></Button>
       </header>
     </div>
   );

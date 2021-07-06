@@ -1,10 +1,12 @@
 import React, { FC, useState } from 'react';
 import './style.css';
 import Button from '../atoms/Button'
+import axios from 'axios'
 type Props = {
     
 }
-
+axios.get('http://127.0.0.1:8000/').then(response => console.log(response.data))
+axios.post('http://localhost:8000/users/?user_id=Fuck').then(response => console.log(response.data))
 
 const Home:  React.FC<Props> = (props) => {
     const submitTwitterAccount = () => {
@@ -17,6 +19,8 @@ const Home:  React.FC<Props> = (props) => {
         }
         setErr('')
         console.log(userId);
+        axios.post(`http://localhost:8000/users/?user_id=${userId}`)
+        .then(response => setErr(response.data.user_id))
     }
     const [userId, setUserId]  = useState('');
     const [err ,setErr] = useState('')
@@ -29,7 +33,7 @@ const Home:  React.FC<Props> = (props) => {
             <h1>Enter Your Twitter account id</h1>
             <p>{ err }</p>
             <input type="text" value={userId} onChange={getValueId} />
-            <Button content="submit" func={submitTwitterAccount}/>
+            <button onClick={submitTwitterAccount}>submit</button>
         </div>
     )
 }

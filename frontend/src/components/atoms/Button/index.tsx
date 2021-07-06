@@ -2,15 +2,15 @@ import React, { FC } from 'react';
 import './style.css';
 
 type Props = {
-    content: string;
-    href: string ;
-    func: Function ;
+    content?: string;
+    href?: string ;
 }
 
 
 const Button:  React.FC<Props> = (props) => {
+
     return (
-        <a href={props.href} className="button" onClick={props.func}>{props.content}</a>
+        <a href={props.href} className="button">{props.content}</a>
     )
 }
 
