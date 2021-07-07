@@ -1,5 +1,9 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+import uvicorn
+import gensim
+import gensim.models
+from gensim.models import KeyedVectors
 
 
 app = FastAPI()
@@ -7,6 +11,9 @@ origins = [
     "http://localhost:3000"
 ]
 
+print("watit to load models")
+model = gensim.models.KeyedVectors.load_word2vec_format('machine_learn/ja.vec')
+print("finish load models !!")
 
 app.add_middleware(
     CORSMiddleware,
@@ -28,3 +35,7 @@ def read_user(user_id:str):
 @app.get("/items/{item_id}")
 def read_item(item_id: int, q: str = None):
     return {"item_id": item_id, "q": q}
+
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="127.0.0.1", port=5000)
