@@ -1,4 +1,4 @@
-from backend.apiKeys.twitterAPI import ACCESS_SECRET, ACCESS_TOKEN, CONSUMER_KEY, CONSUMER_SECRET
+from apiKeys.twitterAPI import ACCESS_SECRET, ACCESS_TOKEN, CONSUMER_KEY, CONSUMER_SECRET
 import json
 from requests_oauthlib import OAuth1Session
 import pprint
