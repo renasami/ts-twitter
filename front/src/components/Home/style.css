@@ -7,7 +7,17 @@
     justify-content: center;
     font-size: calc(10px + 2vmin);
     color: white;
-    }
+    grid-row: 1 / 5;
+    grid-column: 2/5;
+}
+body {
+    background-color: #282c34;
+}
+#root {
+    display:grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+}
 
 input 
 {
@@ -34,4 +44,15 @@ button:hover{
     -webkit-transition: all 0.4s;
     -moz-transition: all 0.4s;
     transition: all 0.4s;
+}
+ul {
+    list-style: none;
+}
+
+.tweets {
+    grid-row: 1 / 6;
+    grid-column: 1 / 2;
+    color: white;
+    margin: auto;
+    text-align: center;
 }

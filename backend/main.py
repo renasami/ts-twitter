@@ -4,6 +4,7 @@ import uvicorn
 import gensim
 import gensim.models
 from gensim.models import KeyedVectors
+from get_tweets import get_tweets
 
 
 app = FastAPI()
@@ -11,9 +12,9 @@ origins = [
     "http://localhost:3000"
 ]
 
-print("watit to load models")
-model = gensim.models.KeyedVectors.load_word2vec_format('machine_learn/ja.vec')
-print("finish load models !!")
+# print("watit to load models")
+# model = gensim.models.KeyedVectors.load_word2vec_format('machine_learn/ja.vec')
+# print("finish load models !!")
 
 app.add_middleware(
     CORSMiddleware,
@@ -23,14 +24,22 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
 @app.get("/")
 def read_root():
     return {"Hello": "World"}
 
 @app.post("/users/")
 def read_user(user_id:str):
-    print(user_id)
+    
     return {"user_id":user_id[1:] + " is your user id"}
+
+@app.get("/get_tweets/")
+def pass_tweets():
+    tweets = get_tweets()
+    print(tweets)
+    return tweets
+
 
 @app.get("/items/{item_id}")
 def read_item(item_id: int, q: str = None):
@@ -38,4 +47,4 @@ def read_item(item_id: int, q: str = None):
 
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="127.0.0.1", port=5000)
+    uvicorn.run(app, host="127.0.0.1", port=5000, reload=True)
