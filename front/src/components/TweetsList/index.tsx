@@ -7,13 +7,20 @@ const TweetsList: FC = () => {
     let listItems: any[] = []
     const get_tweets = async () =>{
         await axios.get(`http://localhost:5000/get_tweets/`)
-            .then(response => { tweets.push(response.data) })
+            .then(response => { response.data.forEach((tweet: string) => tweets.push(tweet)) })
         console.log(tweets)
-        listItems = tweets.map((tw, index) =>
-            <li key={index}>
-                {tw}
-            </li>)
+        listItems = tweets.map((tw, index) =>{
+            return(
+                <>
+                    <li key={index}>
+                        {tw}
+                    </li>
+                    <hr />
+                </>
+            )}
+        )
         setTweetsList([...listItems])
+        console.log(tweetsList)
     }
 
     return (
@@ -27,3 +34,4 @@ const TweetsList: FC = () => {
 }
 
 export default TweetsList
+
