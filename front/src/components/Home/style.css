@@ -27,13 +27,13 @@ button {
     background: #282c34;
     color: white;
     border: 2px solid white;
-    font-size: 20px;
+    font-size: 80%;
     letter-spacing: 2px;
-    padding: 25px 80px;
+    padding: 3% 15%;
     text-transform: uppercase;
     cursor: pointer;
     display: inline-block;
-    margin: 15px 30px;
+    margin: 3% 10%;
     -webkit-transition: all 0.4s;
     -moz-transition: all 0.4s;
     transition: all 0.4s;
@@ -55,4 +55,6 @@ ul {
     color: white;
     margin: auto;
     text-align: center;
+    width: 100%;
+    padding:auto;
 }

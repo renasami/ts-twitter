@@ -43,7 +43,7 @@ const Home:  React.FC<Props> = (props) => {
                 <h1>Enter Your Twitter account id</h1>
                 <p>{ err }</p>
                 <input type="text" value={userId} onChange={getValueId} />
-                <button onClick={submitTwitterAccount}>submit</button>
+                <button onClick={submitTwitterAccount} className="good">submit</button>
             </div>
         </>
     )
