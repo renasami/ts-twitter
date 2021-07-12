@@ -5,6 +5,7 @@ import gensim
 import gensim.models
 from gensim.models import KeyedVectors
 from get_tweets import get_tweets
+from wakati import wakati
 
 
 app = FastAPI()
@@ -31,14 +32,14 @@ def read_root():
 
 @app.post("/users/")
 def read_user(user_id:str):
-    
     return {"user_id":user_id[1:] + " is your user id"}
 
 @app.get("/get_tweets/")
 def pass_tweets():
-    tweets = get_tweets()
-    print(tweets)
-    return tweets
+    tweetsList = get_tweets()
+    print(tweetsList)
+    wakati(tweetsList)
+    return tweetsList
 
 
 @app.get("/items/{item_id}")
