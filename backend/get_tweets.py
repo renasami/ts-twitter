@@ -2,6 +2,7 @@ from apiKeys.twitterAPI import ACCESS_SECRET, ACCESS_TOKEN, CONSUMER_KEY, CONSUM
 import json
 from requests_oauthlib import OAuth1Session
 import pprint
+import re
 
 
 twitter = OAuth1Session(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_SECRET)
@@ -22,13 +23,17 @@ def get_tweets():
         "なんちゃってプログラミング、パズルみたいにあれこれ指示を組み合わせてその通りの結果が出るとめちゃくちゃ気持ちいいな…天才になった気分になれる…",
         "RT @keikinishida: Tansaさんのストリングスアレンジ/プログラミングが素敵すぎなので、是非注目して聴いてください！ https://t.co/zEkyN4ZOq8",
         "RT @gijigae: これは、子供たちにプログラミングを教える上でも大変効果的な方法✨。面白いし、結果を見てどんな改善が必要なのか考えるのでアルゴリズムの基礎が学べる。",
-        "まじあいつキモイ死ね。"
+        "まじあいつキモイ死ね。",
         "AAAを殺したい"
     ]
+    return_tweets =[]
     # params = {'query' : 'from:'+userId[1:], #検索したいワード
     #      "maxResults" : "10"}
     # print(params)
-    return test_tweet
+    for n in test_tweet:
+        print(n)
+        return_tweets.append(re.sub(r'^https?:\/\/.*[\r\n]*', '', n, flags=re.MULTILINE))
+    return return_tweets
     # res = twitter.get(url, params = params)
     # print(res)
     # tweets = res.json()

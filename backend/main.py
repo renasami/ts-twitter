@@ -6,6 +6,7 @@ import gensim.models
 from gensim.models import KeyedVectors
 from get_tweets import get_tweets
 from wakati import wakati
+from tweet_evaluation import evaluation
 
 
 app = FastAPI()
@@ -13,6 +14,7 @@ origins = [
     "http://localhost:3000"
 ]
 
+#model = gensim.models.KeyedVectors.load_word2vec_format('machine_learn/ja.vec')
 
 
 app.add_middleware(
@@ -36,9 +38,18 @@ def read_user(user_id:str):
 def pass_tweets():
     tweetsList = get_tweets()
     print(tweetsList)
-    wakati(tweetsList)
-    return tweetsList
+    wakati_tweets = wakati(tweetsList)
+    badTweets = evaluation(wakati_tweets)
+    return len(badTweets)
 
+@app.get("/test/")
+async def test():
+    tweetsList = get_tweets()
+    print(tweetsList)
+    wakati_tweets = wakati(tweetsList)
+    badTweets = evaluation(wakati_tweets)
+    print(badTweets)
+    return len(badTweets)
 
 @app.get("/items/{item_id}")
 def read_item(item_id: int, q: str = None):

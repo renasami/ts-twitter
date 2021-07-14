@@ -6,8 +6,8 @@ import axios from 'axios'
 type Props = {
     
 }
-axios.get('http://127.0.0.1:5000/').then(response => console.log(response.data))
-axios.post('http://localhost:5000/users/?user_id=Fuck').then(response => console.log(response.data))
+axios.get('http://127.0.0.1:5000/test').then(response => console.log(response.data))
+axios.post('http://127.0.0.1:5000/users/?user_id=Fuck').then(response => console.log(response.data))
 
 const Home:  React.FC<Props> = (props) => {
 
@@ -21,7 +21,7 @@ const Home:  React.FC<Props> = (props) => {
         }
         setErr('')
         console.log(userId);
-        await axios.post(`http://localhost:5000/users/?user_id=${userId}`)
+        await axios.post(`http://127.0.0.1:5000/users/?user_id=${userId}`)
         .then(response => setErr(response.data.user_id))
         
     }
