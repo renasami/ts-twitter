@@ -1,0 +1,32 @@
+
+.results{ 
+    height:100vh;
+    width:100vw;
+    text-align:center;
+}
+
+.fas {
+    margin-top: 40vh;
+    height:100vh;
+    float:left;
+    width: 33%;
+    margin: auto;
+}
+
+
+.child {
+    position: relative;
+    margin-top: 40vh;
+    color: white;
+}
+.list {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    font-weight: bold;
+    color: white;
+    border: solid 3px white;/*線*/
+    border-radius: 10px;/*角の丸み*/
+}
+span{
+    font-size:2.5em;
+}

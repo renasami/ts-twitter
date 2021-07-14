@@ -3,7 +3,8 @@ import './style.css';
 
 import { Route,BrowserRouter as Router, useHistory } from 'react-router-dom';
 import Home from '../Home';
-
+import Result from '../Result';
+import store from '../../store';
 
 const Top = () => {
   const his = useHistory();
@@ -25,6 +26,7 @@ function App() {
       <Router>
         <Route exact path="/"  component={Top}/>
         <Route exact path="/Home" component={Home}/>
+        {/* <Route exact path="/Result" component={Result} /> */}
       </Router>
     </div>
   );

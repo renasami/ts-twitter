@@ -34,17 +34,32 @@ def read_root():
 def read_user(user_id:str):
     return {"user_id":user_id[1:] + " is your user id"}
 
-@app.get("/get_tweets/")
-def pass_tweets():
-    tweetsList = get_tweets()
+@app.post("/get_tweets/")
+def pass_tweets(userId:str):
+    print(userId)
+    return_tweets = []
+    tweetsList = get_tweets(userId)
     print(tweetsList)
     wakati_tweets = wakati(tweetsList)
     badTweets = evaluation(wakati_tweets)
-    return len(badTweets)
+    sorted_bad_tweets = sorted(badTweets.items(), key=lambda x:x[1], reverse=True)
+    print(sorted_bad_tweets)
+    for n in sorted_bad_tweets:
+        return_tweets.append(tweetsList[n[0]])
+        if len(return_tweets) > 2:
+            break
+    print(badTweets)
+    print("--------------------------------------------------------")
+    return return_tweets
 
-@app.get("/test/")
-async def test():
-    tweetsList = get_tweets()
+@app.post("/all")
+def all_tweet(userId:str):
+    print(userId)
+    return len(get_tweets(userId))
+
+@app.post("/test/")
+async def test(userId:str):
+    tweetsList = get_tweets(userId)
     print(tweetsList)
     wakati_tweets = wakati(tweetsList)
     badTweets = evaluation(wakati_tweets)
