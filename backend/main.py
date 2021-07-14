@@ -13,9 +13,7 @@ origins = [
     "http://localhost:3000"
 ]
 
-# print("watit to load models")
-# model = gensim.models.KeyedVectors.load_word2vec_format('machine_learn/ja.vec')
-# print("finish load models !!")
+
 
 app.add_middleware(
     CORSMiddleware,
