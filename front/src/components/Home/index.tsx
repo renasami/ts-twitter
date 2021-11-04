@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react';
 import './style.css';
-import axios from 'axios'
+import axios from 'axios';
 import {useHistory, Route,BrowserRouter as Router} from 'react-router-dom'
 import Result from '../Result';
 import store from '../../store';

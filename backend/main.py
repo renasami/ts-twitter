@@ -15,7 +15,7 @@ origins = [
 ]
 
 #model = gensim.models.KeyedVectors.load_word2vec_format('machine_learn/ja.vec')
-
+#you can run this app at backend directory with " source bin/activate && python main.py"
 
 app.add_middleware(
     CORSMiddleware,
@@ -72,4 +72,4 @@ def read_item(item_id: int, q: str = None):
 
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="127.0.0.1", port=5000, reload=True)
+    uvicorn.run("main:app", host="127.0.0.1", port=5000, reload=True)

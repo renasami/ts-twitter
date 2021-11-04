@@ -1,8 +1,7 @@
 from apiKeys.twitterAPI import ACCESS_SECRET, ACCESS_TOKEN, CONSUMER_KEY, CONSUMER_SECRET
 import json
 from requests_oauthlib import OAuth1Session
-import pprint
-import re
+
 
 
 twitter = OAuth1Session(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_SECRET)
@@ -29,7 +28,7 @@ def get_tweets(userId:str):
     #     "AAAを殺したい"
     # ]
     return_tweets =[]
-    params = {"maxResults" : "100"}
+    params = {"maxResults" : 200}
     print(params)
     queryUrl = url + userId[1:]
     res = twitter.get(queryUrl, params = params)
